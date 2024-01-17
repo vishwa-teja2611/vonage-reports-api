@@ -4,7 +4,7 @@ import json
 # Replace these values with your database credentials
 dbname = "call_logs"
 user = "postgres"
-password = "5694861@Bvt"
+password = ""
 host = "localhost"
 
 # Replace these values with your JSON file path and table/column names

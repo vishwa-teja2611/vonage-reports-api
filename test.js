@@ -5,8 +5,8 @@ const apiUrl = 'https://api.vonage.com/t/vbc.prod/reports/accounts/190230/call-l
 
 // Example query parameters
 const params = {
-  'start:gte': '2024-01-15 00:00:00',
-  'start:lte': '2024-01-15 17:00:00',
+  'start:gte': '2024-01-12 00:00:00',
+  'start:lte': '2024-01-13 00:00:00',
   page_size: '10000',
   page: '1'
 };
@@ -23,27 +23,27 @@ axios.get(apiUrl + '?' + queryString, {
 })
 
 .then(response => {
-  const jsonData = response.data._embedded.call_logs;
+  const callLogs = response.data._embedded.call_logs;
 
-  const fs = require('fs');
+//   const fs = require('fs');
 
-  // Convert JSON to string
-  const jsonString = JSON.stringify(jsonData, null, 2); // The third parameter (2) specifies the number of spaces to use for indentation
+//   // Convert JSON to string
+//   const jsonString = JSON.stringify(jsonData, null, 2); // The third parameter (2) specifies the number of spaces to use for indentation
 
-  // Specify the file path
-  const filePath = 'output.json';
+//   // Specify the file path
+//   const filePath = 'output.json';
 
-  // Write the JSON data to the file
-  fs.writeFile(filePath, jsonString, 'utf-8', (err) => {
-  if (err) {
-    console.error('Error writing JSON to file:', err);
-  } else {
-      console.log('JSON data has been written to', filePath);
-  }
-});
+//   // Write the JSON data to the file
+//   fs.writeFile(filePath, jsonString, 'utf-8', (err) => {
+//   if (err) {
+//     console.error('Error writing JSON to file:', err);
+//   } else {
+//       console.log('JSON data has been written to', filePath);
+//   }
+// });
 
   
-/*   // Iterate through each call log object
+  // Iterate through each call log object
   callLogs.forEach((callLog, index) => {
     console.log(`Call Log ${index + 1}:`, callLog);
     // Access specific properties within each call log object if needed
@@ -56,5 +56,5 @@ axios.get(apiUrl + '?' + queryString, {
 })
 .catch(error => {
   console.error('Error details:', error.message);
-}); */
 });
+// });
